@@ -3,7 +3,7 @@ const cors = require("cors")
 require("dotenv").config;
 const bycrpt = require("bcrypt"); 
 const jwtRouter = require('./routers/route');
-
+const notFound = require('./middleware/notFound');
 
 
 const app = express();
@@ -21,6 +21,7 @@ app.get('', (req,res) => {
 
 })
 
+app.use(notFound);
 
 
 app.listen(port, () => {
